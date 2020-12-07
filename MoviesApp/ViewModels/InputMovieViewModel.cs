@@ -14,6 +14,6 @@ namespace MoviesApp.ViewModels
         public string Genre { get; set; }
         public decimal Price { get; set; }
 
-        public ICollection<ActorsMovies> ActorGroup { get; set; }
+        public List<Actor> Actors { get; set; }
     }
 }

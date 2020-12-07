@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MshcHNQ15sb/Mbq/2DcMkLar8eqoQIILfUq4x0y357Y/wfmerd0tbS0bLcNFq5Y3zcRgKHrB/qAo0Buyt1RDbw==",
+  "dgSpecHash": "RMkFfFr4vWWagKjmoBLuPWB1sw+riKEQoRFv5ILqOoQJ8wzdLjZm/dMAiNzS7TZqooCLHiENjd5wPVWg2nR4AA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Maxim\\Desktop\\projects\\.net\\MoviesApp\\MoviesApp.csproj",
+  "projectFilePath": "C:\\Users\\Maxim\\Desktop\\projects\\MovieApp\\MoviesApp\\MoviesApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Maxim\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Maxim\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

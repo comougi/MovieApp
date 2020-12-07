@@ -31,11 +31,11 @@ namespace MoviesApp.Controllers
                     Firstname = a.Firstname,
                     Lastname = a.Lastname,
                     Birthdate = a.Birthdate,
-                    ActorFilmography = a.ActorFilmography
+                    Movies = a.ActorFilmography.Select(am => am.Movie).ToList()
                 }).ToList());
         }
 
-        
+
         [HttpGet]
         public IActionResult Details(int? id)
         {
@@ -48,7 +48,7 @@ namespace MoviesApp.Controllers
                     Firstname = a.Firstname,
                     Lastname = a.Lastname,
                     Birthdate = a.Birthdate,
-                    ActorFilmography = a.ActorFilmography
+                    Movies = a.ActorFilmography.Select(am => am.Movie).ToList()
                 }).FirstOrDefault();
 
 
@@ -57,14 +57,14 @@ namespace MoviesApp.Controllers
             return View(viewModel);
         }
 
-        
+
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create([Bind("Firstname,Lastname,Birthdate,ActorFilmography")]
@@ -72,14 +72,17 @@ namespace MoviesApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(new Actor
+                var actor = new Actor
                 {
                     Id = inputModel.Id,
                     Firstname = inputModel.Firstname,
                     Lastname = inputModel.Lastname,
                     Birthdate = inputModel.Birthdate,
-                    ActorFilmography = inputModel.ActorFilmography
-                });
+                };
+                _context.Add(actor);
+                _context.SaveChanges();
+                actor.ActorFilmography = inputModel.Movies
+                    .Select(m => new ActorsMovies {ActorId = inputModel.Id, MovieId = m.Id}).ToList();
                 _context.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
@@ -100,14 +103,14 @@ namespace MoviesApp.Controllers
                     Firstname = a.Firstname,
                     Lastname = a.Lastname,
                     Birthdate = a.Birthdate,
-                    ActorFilmography = a.ActorFilmography
+                    Movies = a.ActorFilmography.Select(am => am.Movie).ToList()
                 }).FirstOrDefault();
 
             if (editModel == null) return NotFound();
 
             return View(editModel);
         }
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, [Bind("Firstname,Lastname,Birthdate,ActorFilmography")]
@@ -123,7 +126,8 @@ namespace MoviesApp.Controllers
                         Firstname = editModel.Firstname,
                         Lastname = editModel.Lastname,
                         Birthdate = editModel.Birthdate,
-                        ActorFilmography = editModel.ActorFilmography
+                        ActorFilmography = editModel.Movies
+                            .Select(m => new ActorsMovies {ActorId = id, MovieId = m.Id}).ToList()
                     };
 
                     _context.Update(actor);
@@ -154,7 +158,7 @@ namespace MoviesApp.Controllers
                     Firstname = a.Firstname,
                     Lastname = a.Lastname,
                     Birthdate = a.Birthdate,
-                    ActorFilmography = a.ActorFilmography
+                    Movies = a.ActorFilmography.Select(am => am.Movie).ToList()
                 }).FirstOrDefault();
 
             if (deleteModel == null) return NotFound();
@@ -162,7 +166,7 @@ namespace MoviesApp.Controllers
             return View(deleteModel);
         }
 
-        
+
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]

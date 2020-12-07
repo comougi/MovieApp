@@ -32,7 +32,7 @@ namespace MoviesApp.Controllers
                     Price = m.Price,
                     Title = m.Title,
                     ReleaseDate = m.ReleaseDate,
-                    ActorGroup = m.ActorGroup
+                    Actors = m.ActorGroup.Select(af => af.Actor).ToList()
                 }).ToList());
         }
 
@@ -50,7 +50,7 @@ namespace MoviesApp.Controllers
                     Price = m.Price,
                     Title = m.Title,
                     ReleaseDate = m.ReleaseDate,
-                    ActorGroup = m.ActorGroup
+                    Actors = m.ActorGroup.Select(af => af.Actor).ToList()
                 }).FirstOrDefault();
 
 
@@ -76,15 +76,19 @@ namespace MoviesApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(new Movie
+                var movie = new Movie
                 {
                     Genre = inputModel.Genre,
                     Price = inputModel.Price,
                     Title = inputModel.Title,
-                    ReleaseDate = inputModel.ReleaseDate,
-                    ActorGroup = inputModel.ActorGroup
-                });
+                    ReleaseDate = inputModel.ReleaseDate
+                };
+                _context.Add(movie);
                 _context.SaveChanges();
+                movie.ActorGroup =
+                    inputModel.Actors.Select(a => new ActorsMovies() {MovieId = movie.Id, ActorId = a.Id}).ToList();
+                _context.SaveChanges();
+
 
                 return RedirectToAction(nameof(Index));
             }
@@ -105,7 +109,7 @@ namespace MoviesApp.Controllers
                     Price = m.Price,
                     Title = m.Title,
                     ReleaseDate = m.ReleaseDate,
-                    ActorGroup = m.ActorGroup
+                    Actors = m.ActorGroup.Select(af => af.Actor).ToList()
                 }).FirstOrDefault();
 
             if (editModel == null) return NotFound();
@@ -132,7 +136,8 @@ namespace MoviesApp.Controllers
                         Price = editModel.Price,
                         Title = editModel.Title,
                         ReleaseDate = editModel.ReleaseDate,
-                        ActorGroup = editModel.ActorGroup
+                        ActorGroup =
+                            editModel.Actors.Select(a => new ActorsMovies() {MovieId = id, ActorId = a.Id}).ToList()
                     };
 
                     _context.Update(movie);
@@ -164,7 +169,7 @@ namespace MoviesApp.Controllers
                     Price = m.Price,
                     Title = m.Title,
                     ReleaseDate = m.ReleaseDate,
-                    ActorGroup = m.ActorGroup
+                    Actors = m.ActorGroup.Select(af => af.Actor).ToList()
                 }).FirstOrDefault();
 
             if (deleteModel == null) return NotFound();

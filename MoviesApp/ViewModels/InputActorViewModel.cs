@@ -12,7 +12,8 @@ namespace MoviesApp.ViewModels
         public string Lastname { get; set; }
 
         [DataType(DataType.Date)] public DateTime Birthdate { get; set; }
+
         
-        public ICollection<ActorsMovies> ActorFilmography { get; set; }
+        public List<Movie> Movies { get; set; }
     }
 }

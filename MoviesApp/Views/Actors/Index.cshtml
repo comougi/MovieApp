@@ -42,9 +42,9 @@
                 @item.Birthdate.ToString("dd.MM.yyyy")
             </td>
             <td>
-                @foreach (var element in item.ActorFilmography)
+                @foreach (var element in item.Movies)
                             {
-                                @element.Movie.Title
+                                @element.Title
                                 <label>, </label>
                             }
             </td>

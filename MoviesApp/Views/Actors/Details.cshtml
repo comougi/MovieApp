@@ -31,9 +31,9 @@
             <label>Filmography: </label>
         </dt>
         <dd class="col-sm-10">
-            @foreach (var element in Model.ActorFilmography)
+            @foreach (var element in Model.Movies)
             {
-                @element.Movie.Title
+                @element.Title
                 <label>, </label>
             }
         </dd>

@@ -5893,17 +5893,21 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Maxim\\.nuget\\packages\\": {}
+    "C:\\Users\\Maxim\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Maxim\\Desktop\\projects\\.net\\MoviesApp\\MoviesApp.csproj",
+      "projectUniqueName": "C:\\Users\\Maxim\\Desktop\\projects\\MovieApp\\MoviesApp\\MoviesApp.csproj",
       "projectName": "MoviesApp",
-      "projectPath": "C:\\Users\\Maxim\\Desktop\\projects\\.net\\MoviesApp\\MoviesApp.csproj",
+      "projectPath": "C:\\Users\\Maxim\\Desktop\\projects\\MovieApp\\MoviesApp\\MoviesApp.csproj",
       "packagesPath": "C:\\Users\\Maxim\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Maxim\\Desktop\\projects\\.net\\MoviesApp\\obj\\",
+      "outputPath": "C:\\Users\\Maxim\\Desktop\\projects\\MovieApp\\MoviesApp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
         "C:\\Users\\Maxim\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],

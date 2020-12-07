@@ -1,11 +1,14 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\Maxim\\Desktop\\projects\\.net\\MoviesApp\\MoviesApp.csproj",
+    "projectUniqueName": "C:\\Users\\Maxim\\Desktop\\projects\\MovieApp\\MoviesApp\\MoviesApp.csproj",
     "projectName": "MoviesApp",
-    "projectPath": "C:\\Users\\Maxim\\Desktop\\projects\\.net\\MoviesApp\\MoviesApp.csproj",
-    "outputPath": "C:\\Users\\Maxim\\Desktop\\projects\\.net\\MoviesApp\\obj\\",
+    "projectPath": "C:\\Users\\Maxim\\Desktop\\projects\\MovieApp\\MoviesApp\\MoviesApp.csproj",
+    "outputPath": "C:\\Users\\Maxim\\Desktop\\projects\\MovieApp\\MoviesApp\\obj\\",
     "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+    ],
     "originalTargetFrameworks": [
       "netcoreapp3.1"
     ],
